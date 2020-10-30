@@ -19,9 +19,9 @@ namespace backend_chemi_clean.Controllers
         }  
 
         [HttpGet]
-        public IActionResult GetAllProducts()
+        public IActionResult GetAllProducts(int page)
         {
-            return Ok(_productRepository.GetAllProducts());
+            return Ok(_productRepository.GetAllProducts(page));
         }
         
         [HttpPost]

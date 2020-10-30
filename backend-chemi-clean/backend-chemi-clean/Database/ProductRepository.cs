@@ -14,7 +14,7 @@ namespace backend_chemi_clean.Database
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<JoinedProduct> GetAllProducts()
+        public IEnumerable<JoinedProduct> GetAllProducts(int page)
         {
             var products = (from product in _appDbContext.tblProduct
                 join file in _appDbContext.TblProductFile
@@ -27,7 +27,7 @@ namespace backend_chemi_clean.Database
                     blob = file.Blob,
                     type = file.Type,
                     updateTimestamp = file.UpdateTimestamp
-                }).ToList();
+                }).ToList().Skip((page-1) * 20).Take(50);
 
             List<JoinedProduct> joinedProducts = new List<JoinedProduct>();
 
