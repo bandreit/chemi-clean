@@ -71,8 +71,18 @@ const SubTitle = styled.p`
   align-self: end;
 `;
 
+const Updated = styled.span`
+  color: red;
+`;
+
 const ProductCard = ({ product }) => {
-  const { productName, supplierName, blob, type } = { ...product };
+  const { productName, supplierName, blob, type, updateTimestamp } = {
+    ...product,
+  };
+
+  const checkUpdateTimestamp = Date.parse(updateTimestamp);
+  const now = Date.parse(new Date());
+  const moreThanThreeDaysAgo = checkUpdateTimestamp + 259200000 < now;
 
   function base64ToArrayBuffer(base64) {
     const binaryString = window.atob(base64);
@@ -86,7 +96,6 @@ const ProductCard = ({ product }) => {
   }
 
   function saveByteArray(reportName, byte) {
-    // text/html
     const blob = new Blob([byte], { type: type });
     console.log(blob instanceof Blob, type);
     const link = document.createElement("a");
@@ -104,7 +113,10 @@ const ProductCard = ({ product }) => {
   return (
     <Card>
       <Devider>
-        <Title>{productName}</Title>
+        <Title>
+          {productName}
+          {!moreThanThreeDaysAgo || <Updated> *</Updated>}
+        </Title>
         <SubTitle>{supplierName}</SubTitle>
       </Devider>
       <ButtonWrapper>

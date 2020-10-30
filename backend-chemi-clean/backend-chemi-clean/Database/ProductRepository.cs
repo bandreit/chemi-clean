@@ -25,7 +25,8 @@ namespace backend_chemi_clean.Database
                     productName = product.ProductName,
                     supplierName = product.SupplierName,
                     blob = file.Blob,
-                    type = file.Type
+                    type = file.Type,
+                    updateTimestamp = file.UpdateTimestamp
                 }).ToList();
 
             List<JoinedProduct> joinedProducts = new List<JoinedProduct>();
@@ -35,7 +36,7 @@ namespace backend_chemi_clean.Database
                 joinedProducts.Add(new JoinedProduct()
                 {
                     ID = product.id, ProductName = product.productName, SupplierName = product.supplierName,
-                    Blob = product.blob, Type = product.type
+                    Blob = product.blob, Type = product.type, UpdateTimestamp = product.updateTimestamp
                 });
             }
 
@@ -55,6 +56,7 @@ namespace backend_chemi_clean.Database
                 catch (Exception e)
                 {
                 }
+
                 return result;
             }
         }
