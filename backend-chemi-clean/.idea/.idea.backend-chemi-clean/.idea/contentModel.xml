@@ -14,7 +14,9 @@
           <e p="ProductsController.cs" t="Include" />
         </e>
         <e p="Data" t="Include">
+          <e p="JoinedProduct.cs" t="Include" />
           <e p="tblProduct.cs" t="Include" />
+          <e p="tblProductFile.cs" t="Include" />
         </e>
         <e p="Database" t="Include">
           <e p="AppDbContext.cs" t="Include" />

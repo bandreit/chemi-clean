@@ -29,6 +29,11 @@ const SearchInput = styled.input`
   box-sizing: border-box;
 `;
 
+const Loading = styled.div`
+  display: grid;
+  place-items: center;
+`;
+
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
@@ -39,7 +44,7 @@ function App() {
   };
 
   useEffect(() => {
-    axios.get("https://localhost:5001/api/products").then((res) => {
+    axios.get("https://localhost:5001/products").then((res) => {
       const products = res.data;
       setProducts(products);
       setSearchResults(products);
@@ -54,7 +59,7 @@ function App() {
   }, [searchTerm, products]);
 
   return (
-    <div className="App">
+    <div>
       <HeaderSearch>
         <SearchInput
           type="text"
@@ -63,11 +68,15 @@ function App() {
           onChange={handleChange}
         />
       </HeaderSearch>
-      <Grid>
-        {searchResults.map((product, key) => (
-          <ProductCard key={key} product={product}></ProductCard>
-        ))}
-      </Grid>
+      {products.length > 0 ? (
+        <Grid>
+          {searchResults.map((product, key) => (
+            <ProductCard key={key} product={product}></ProductCard>
+          ))}
+        </Grid>
+      ) : (
+        <Loading>Loading...</Loading>
+      )}
     </div>
   );
 }

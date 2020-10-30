@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import download_arrow from "./images/download_arrow.png";
-import axios from "axios";
 
 const Card = styled.div`
   max-height: 120px;
@@ -26,9 +25,6 @@ const Card = styled.div`
 `;
 
 const Devider = styled.div`
-  /* display: flex;
-  justify-content: space-around;
-  flex-direction: column; */
   display: grid;
   grid-template-rows: 70% 30%;
   height: 100%;
@@ -36,14 +32,14 @@ const Devider = styled.div`
 
 const DownloadButton = styled.button`
   border: 0;
-  background-color: #1976d2;
+  background-color: ${(props) => (props.availble ? "#1976d2" : "grey")};
   border-radius: 50%;
   :focus {
     outline: none;
   }
   :hover {
-    background-color: #0d3d6c;
-    cursor: pointer;
+    background-color: ${(props) => (props.availble ? "##0d3d6c" : "grey")};
+    cursor: ${(props) => (props.availble ? "pointer" : "not-allowed")};
   }
 `;
 
@@ -76,33 +72,33 @@ const SubTitle = styled.p`
 `;
 
 const ProductCard = ({ product }) => {
-  const { id, productName, supplierName } = { ...product };
+  const { productName, supplierName, blob, type } = { ...product };
 
   function base64ToArrayBuffer(base64) {
-    var binaryString = window.atob(base64);
-    var binaryLen = binaryString.length;
-    var bytes = new Uint8Array(binaryLen);
-    for (var i = 0; i < binaryLen; i++) {
-      var ascii = binaryString.charCodeAt(i);
+    const binaryString = window.atob(base64);
+    const binaryLen = binaryString.length;
+    const bytes = new Uint8Array(binaryLen);
+    for (let i = 0; i < binaryLen; i++) {
+      let ascii = binaryString.charCodeAt(i);
       bytes[i] = ascii;
     }
     return bytes;
   }
 
   function saveByteArray(reportName, byte) {
-    var blob = new Blob([byte], { type: "application/pdf" });
-    var link = document.createElement("a");
+    // text/html
+    const blob = new Blob([byte], { type: type });
+    console.log(blob instanceof Blob, type);
+    const link = document.createElement("a");
     link.href = window.URL.createObjectURL(blob);
-    var fileName = reportName;
+    const fileName = reportName;
     link.download = fileName;
     link.click();
   }
 
   function downloadFile() {
-    axios.get(`https://localhost:5001/download/${id}`).then(({ data }) => {
-      var sampleArr = base64ToArrayBuffer(data);
-      saveByteArray("Sample Report", sampleArr);
-    });
+    const sampleArr = base64ToArrayBuffer(blob);
+    saveByteArray(productName, sampleArr);
   }
 
   return (
@@ -112,7 +108,11 @@ const ProductCard = ({ product }) => {
         <SubTitle>{supplierName}</SubTitle>
       </Devider>
       <ButtonWrapper>
-        <DownloadButton onClick={() => downloadFile()}>
+        <DownloadButton
+          disabled={blob === null}
+          availble={blob !== null}
+          onClick={() => downloadFile()}
+        >
           <Image src={download_arrow} alt="download"></Image>
         </DownloadButton>
       </ButtonWrapper>

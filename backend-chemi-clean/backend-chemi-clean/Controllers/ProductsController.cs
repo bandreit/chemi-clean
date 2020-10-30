@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace backend_chemi_clean.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepository _productRepository;  
@@ -22,6 +22,20 @@ namespace backend_chemi_clean.Controllers
         public IActionResult GetAllProducts()
         {
             return Ok(_productRepository.GetAllProducts());
+        }
+        
+        [HttpPost]
+        [Route("upload/{id:int}")]
+        public IActionResult UploadDocument(int id)
+        {
+            return Ok(_productRepository.UploadDocument(id));
+        }
+        
+        [HttpPost]
+        [Route("upload-all")]
+        public IActionResult UploadAllDocuments()
+        {
+            return Ok(_productRepository.UploadAllDocuments());
         }
     }
 }

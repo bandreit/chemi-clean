@@ -6,7 +6,9 @@ namespace backend_chemi_clean.Database
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetAllProducts();
+        IEnumerable<JoinedProduct> GetAllProducts();
         byte[] GetProductDocument(int id);
+        byte[] UploadDocument(int id);
+        int UploadAllDocuments();
     }
 }

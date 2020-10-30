@@ -10,5 +10,12 @@ namespace backend_chemi_clean.Database
         }
 
         public DbSet<Product> tblProduct { get; set; }
+        public DbSet<tblProductFile> TblProductFile { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<tblProductFile>().HasKey(x => x.ID);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
