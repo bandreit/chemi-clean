@@ -23,14 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f040f6dd-3298-4510-b1a2-9bbff33b8aa7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend-chemi-clean/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.backend-chemi-clean/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/Controllers/ProductsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/Database/IProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/Database/IProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/Database/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/Database/ProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/bin/Debug/netcoreapp3.1/backend-chemi-clean.dll" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/bin/Debug/netcoreapp3.1/backend-chemi-clean.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/bin/Debug/netcoreapp3.1/backend-chemi-clean.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/bin/Debug/netcoreapp3.1/backend-chemi-clean.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/obj/Debug/netcoreapp3.1/backend-chemi-clean.dll" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/obj/Debug/netcoreapp3.1/backend-chemi-clean.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-chemi-clean/obj/Debug/netcoreapp3.1/backend-chemi-clean.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/backend-chemi-clean/obj/Debug/netcoreapp3.1/backend-chemi-clean.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend-chemi-clean/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.backend-chemi-clean/.idea/contentModel.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +38,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81FEA1EB-EDF3-47F2-8594-E4A4756BC98C/6C/IActionResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F1C5B790-B971-4993-9599-E67712F0EBEE/6/WebClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0C00BD4B-D5A7-402A-A4D7-E295A3B06D98/9/Uri.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend-chemi-clean/Controllers/ProductsController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -119,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603921805918</updated>
       <workItem from="1603921815363" duration="17227000" />
-      <workItem from="1604045847790" duration="17091000" />
+      <workItem from="1604045847790" duration="17409000" />
     </task>
     <servers />
   </component>
