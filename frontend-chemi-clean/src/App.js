@@ -1,38 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./components/ProductCard.js";
-import styled from "styled-components";
-
-const Grid = styled.main`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  align-items: center;
-  grid-gap: 1rem;
-  padding: 5px;
-  margin: 0 20px;
-  @media (max-width: 409px) {
-    padding: 0px;
-    margin: 0px;
-  }
-`;
-
-const HeaderSearch = styled.div`
-  display: grid;
-  place-items: center;
-  height: 5rem;
-`;
-
-const SearchInput = styled.input`
-  width: 20%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-`;
-
-const Loading = styled.div`
-  display: grid;
-  place-items: center;
-`;
+import {
+  Grid,
+  Loading,
+  SearchInput,
+  HeaderSearch,
+} from "./styled/GridComponents";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
